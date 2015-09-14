@@ -166,6 +166,53 @@ div.present .graph .overlay.graph-popleft {
     -webkit-animation: myfirst 5s;
 }
 
+.timeline {
+    background-color: #455A64;
+    height: 15px;
+    width: 500000px;
+    /*transform: rotateY( -75deg ) translateZ( 2000px ) translateY( 1175px );*/
+    border-radius: 15px;
+    visibility: visible !important;
+    opacity: 100 !important;
+}
+
+.dash {
+    background-color: #455A64;
+    height: 45px;
+    width: 10px;
+    border-radius: 5px;
+    margin-left: 100px;
+}
+
+.tl-step {
+    background-color: transparent !important;
+}
+
+.past {
+    visibility:hidden;
+    opacity:0;
+    transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+}
+
+.future {
+    visibility:hidden;
+    opacity:0;
+    transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+}
+
+.active {
+    visibility:visible;
+    opacity:100;
+    transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+}
+
+.tl-headline {
+    position:relative;
+    top: -355px;
+    left: -225px;
+    width: 1440px;
+}
+
 @-webkit-keyframes myfirst
 {
     from {display: none}
