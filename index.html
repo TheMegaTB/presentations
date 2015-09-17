@@ -184,15 +184,52 @@ and open the template in the editor.
         <div class="dash"></div>
     </div>
 
-    <div class="step tl-step" data-z="1000" data-y="960" data-x="4200">
+    <div class="step tl-step" data-z="1000" data-y="960" data-x="4150">
         <div>
             <h2>1923</h2>
         </div>
         <div class="dash"></div>
     </div>
 
+    <div class="step tl-data" data-z="1000" data-y="1650" data-x="4150">
+        <h2 class="tl-headline">1923 - Civil war</h2>
 
-    <div class="step overview tl-step" data-x="1200" data-y="850" data-z="3500">
+        <span style="position: absolute; left: -150px; top: -150px; font-weight: 500">Micheal Collins (Independence War leader)</span>
+        <span style="position: absolute; left: 460px; top: -160px; font-size: 45px;">vs.</span>
+        <span style="position: absolute; left: 550px; top: -150px; font-weight: 500; width: 450px; text-align: right;">Éamon de Valera (Sinn Féin)</span>
+
+        <span style="position: absolute; left: -150px; top: 0px; font-weight: 100;">National army</span>
+        <span style="position: absolute; left: -150px; top: 150px; font-weight: 100">Citizens' Defence Force</span>
+        <span style="position: absolute; left: -150px; top: 300px; font-weight: 100">United Kingdom</span>
+
+        <span style="position: absolute; left: 550px; top: 0px; font-weight: 100; width: 450px; text-align: right;">Irish Republican Army</span>
+        <span style="position: absolute; left: 550px; top: 150px; font-weight: 100; width: 450px; text-align: right;">Irish Republican <br> women's paramilitary organisation</span>
+        <span style="position: absolute; left: 550px; top: 300px; font-weight: 100; width: 450px; text-align: right;">Irish nationalist youth organisation</span>
+
+        <div style="background-color: #455A64; height: 3px; width: 1160px; position: absolute; top: 350px; left: -150px;"></div>
+        <span style="position: absolute; left: -150px; top: 400px; font-weight: 500; font-size: 35px;">58.300</span>
+        <span style="position: absolute; left: -150px; top: 450px; font-weight: 100; font-size: 20px;">Losses: ~800</span>
+        <span style="position: absolute; left: 550px; top: 400px; font-weight: 500; font-size: 35px; width: 450px; text-align: right;">15.000</span>
+        <span style="position: absolute; left: 550px; top: 450px; font-weight: 100; font-size: 20px; width: 450px; text-align: right;">Losses: ~3.000</span>
+        <!--<span style="position: absolute; left: 550px; top: 450px; font-weight: 100; font-size: 25px; width: 450px; text-align: right;">Prisoners: 12.000</span>-->
+    </div>
+
+    <div class="step tl-step" data-z="1000" data-y="960" data-x="4150">
+        <div>
+            <h2>1923</h2>
+        </div>
+        <div class="dash"></div>
+    </div>
+
+    <div class="step last-step tl-step" data-z="1000" data-y="960" data-x="5150">
+        <div>
+            <h2>1949</h2>
+        </div>
+        <div class="dash"></div>
+    </div>
+
+
+    <div class="step overview tl-step" data-x="1400" data-y="850" data-z="4000">
         <a style="position:relative; left: -550px">
             <p style="position:relative; left: 335px">Irish</p>
             <h3>Nationalism</h3>
@@ -209,11 +246,16 @@ and open the template in the editor.
     $('.tl-data').css('width:',window.innerWidth + 'px').css('height:',window.innerHeight + 'px');
 
     function showAll() {
+        console.log("SHOW ALL");
         $('.tl-step').css('opacity', '1').css('visibility', 'visible');
     }
 
     window.addEventListener('impress:stepenter', function(x) {
         if ($(x.target).hasClass('overview')) showAll();
+    });
+
+    window.addEventListener('impress:stepleave', function(x) {
+        if ($(x.target).hasClass('last-step')) showAll();
     });
 
 </script>
