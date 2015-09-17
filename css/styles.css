@@ -213,6 +213,19 @@ div.present .graph .overlay.graph-popleft {
     width: 1440px;
 }
 
+li {
+    font-weight: 100;
+    font-size: 30px;
+    margin-top: 15pt;
+    margin-bottom: 15pt;
+}
+.subli {
+    font-size: 20px;
+    margin-left: 50px;
+    margin-top: 5pt;
+    margin-bottom: 5pt;
+}
+
 @-webkit-keyframes myfirst
 {
     from {display: none}
