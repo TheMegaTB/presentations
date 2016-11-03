@@ -20,7 +20,7 @@ function counter_twitter() {
 
 function counter_skype() {
     skype = skype + 14,39;
-    $('#skype').html(numberWithCommas(skype));
+    $('#youtube').html(numberWithCommas(skype));
 }
 
 function counter_google() {

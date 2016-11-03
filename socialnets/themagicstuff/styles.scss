@@ -1,0 +1,203 @@
+/*
+    Created on : 22.03.2014, 18:30:22
+    Author     : svenangelmayer
+*/
+@import 'compass/reset';
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+@import 'compass/css3';
+
+@include font-face("Dosis", url("Dosis/Dosis-Medium.ttf"), false, 500);
+@include font-face("Dosis", url("Dosis/Dosis-ExtraLight.ttf"), false, 200);
+
+$heading_font: 'Helvetica Neue', 'Dosis', sans-serif;
+$body_bg_color: white;
+$default_slide_width: 900px;
+
+div.step {
+  width: $default_slide_width;
+
+  font: {
+    family: sans-serif;
+    size: 25px;
+  }
+
+  #{headings()} {
+    padding-bottom: 3%;
+
+    text-align: center;
+    font: {
+      family: $heading_font;
+      weight: 100;
+    }
+  }
+
+  h1 {
+    padding-bottom: 0%;
+
+    font-size: 120px;
+  }
+  h2 {
+    font-size: 90px;
+    text-align: left;
+    position: relative;
+
+    &.large {
+      font-size: 65px;
+    }
+  }
+  h3 {
+    /*text-align: left;*/
+    font: {
+      size: 50px;
+    }
+  }
+
+  ol {
+    counter-reset: numbers;
+    padding-left: 3%;
+
+    li:before {
+      counter-increment: numbers;
+      content: counter(numbers);
+
+      display: inline-block;
+      margin-left: -1.3em;
+      width: 1.3em;
+
+      font: {
+        family: $heading_font;
+        weight: 100;
+      }
+    }
+
+    img {
+      @include filter(grayscale(100%));
+    }
+  }
+  ul {
+    padding-left: 3%;
+    list-style-type: circle;
+  }
+  li {
+
+    padding-bottom: .5%;
+
+    &.substep {
+      &.future {
+        opacity: 0;
+      }
+      &.present {
+        transition: all 750ms ease;
+        opacity: 1;
+      }
+    }
+
+    span {
+      display: block;
+      padding-left: 2%;
+
+      &.result {
+
+        &:before {
+          content: '→ ';
+        }
+      }
+
+      &.future {
+        opacity: 0;
+      }
+    }
+  }
+
+  img {
+    max-width: $default_slide_width;
+
+    @include filter(grayscale(100%));
+  }
+
+  //For graphs with animations
+  .graph {
+    max-width: $default_slide_width;
+    height: 600px;
+
+    //background-image: url('../images/bs_bg.png');
+    background-repeat: no-repeat;
+    //background-size: contain;
+
+    .overlay {
+      //background-image: url('../images/bs_fg.png');
+      background-repeat: no-repeat;
+      //background-size: contain;
+
+      &.graph-popup {
+        background-position-y: 2000px;
+
+        height: 100%;
+        width: 100%;
+      }
+      &.graph-popleft {
+        height: 100%;
+        width: 0%;
+
+      }
+    }
+
+  }
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+div.present {
+
+  //Maybe for past  atransition?
+  transition: background-color 500ms ease;
+  background-color: $body_bg_color;
+
+  h2 {
+    /*        transition: all 2s ease;
+            left: 0;
+            opacity: 1;*/
+  }
+
+  img {
+    transition: all 100ms ease;
+    @include filter(grayscale(0%));
+
+  }
+
+  .graph {
+    .overlay {
+
+      transition: all 2s ease;
+
+      &.graph-popup {
+        //height: 100%;
+        background-position-y: 0%;
+
+      }
+      &.graph-popleft {
+        width: 100%;
+      }
+
+    }
+  }
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+.past {
+
+  * {
+    transition: all 2s ease;
+  }
+}
+
+#step-1 {
+  //Frist Slide fix
+  width: 1000px;
+}
